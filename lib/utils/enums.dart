@@ -1,0 +1,4 @@
+enum UnlockType{
+  Pattern,
+  PinCode
+}

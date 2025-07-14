@@ -1,0 +1,85 @@
+name: jellyjelly
+description: "Jelly Mobile Application Test"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.4.4
+  flutter_launcher_icons: ^0.14.4
+  provider: ^6.1.5
+  go_router: ^16.0.0
+  get_it: ^8.0.3
+  video_thumbnail: ^0.5.6
+  shimmer: ^3.0.0
+  video_player: ^2.10.0
+  animate_do: ^4.2.0
+  flutter_svg: ^2.2.0
+  carousel_slider: ^5.1.1
+  camera: ^0.10.5+9
+  path_provider: ^2.1.5
+  permission_handler: ^12.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+
+flutter_native_splash:
+  color: "#0D0D10"
+  image_android: assets/images/logo/logo2.png
+  image_ios: assets/images/logo/logo2.png
+  android_12:
+    image: assets/images/logo/logo2.png
+  web: false
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path_android: "assets/images/logo/logo1.png"
+  image_path_ios: "assets/images/logo/logo1.png"
+  image_path: "assets/images/logo/logo1.png"
+  background_color: "#0D0D10"
+  background_color_ios: "#0D0D10"
+  adaptive_icon_background: "#0D0D10"
+  adaptive_icon_background_ios: "#0D0D10"
+  adaptive_icon_foreground: "assets/images/logo/logo1.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/logo/
+    - assets/images/icons/
+    - assets/images/empty/
+    - assets/fonts/
+    - assets/lottie/
+
+
+  fonts:
+    - family: Ranchers_Regular
+      fonts:
+        - asset: assets/fonts/Ranchers-Regular.ttf
+    - family: TitiliumWeb_Bold
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Bold.ttf
+    - family: TitiliumWeb_Regular
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Regular.ttf
+    - family: TitiliumWeb_SemiBold
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-SemiBold.ttf
+
+
+
+#dart run flutter_native_splash:create
+#dart run flutter_launcher_icons
+
