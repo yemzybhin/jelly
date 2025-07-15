@@ -22,9 +22,9 @@ The split camera view feature (Tab 2) is fully supported on devices with proper 
 
 This Flutter project showcases **multi-tabbed camera interactions**, where:
 
-- **Tab 1:** [📝 _Insert feature explanation here_]
+- **Tab 1:** This is the feeds page that displays scraped data from jelly.com/feeds page. 
 - **Tab 2:** Split-screen dual camera recording (Front & Back)
-- **Tab 3:** [📝 _Insert feature explanation here_]
+- **Tab 3:** Gallery page to display the recorded splitviews over time 
 
 Each session records and saves **two separate video files** (front and back) with matching timestamps, shown neatly in the Gallery tab.
 
@@ -88,9 +88,9 @@ Saved under:
 
 > _Replace with actual images below_
 
-| Split Camera View | Gallery Page |
-|-------------------|--------------|
-| ![Split Camera](screenshots/split_camera.png) | ![Gallery](screenshots/gallery.png) |
+| Split Camera View                                     | Gallery Page |
+|-------------------------------------------------------|--------------|
+| ![Split Camera](assets/images/empty/Screenshot_1752604936.png) | ![Gallery](assets/images/empty/Screenshot_1752604979.png) |
 
 ---
 

@@ -49,6 +49,13 @@ class _SplitCameraViewState extends State<SplitCameraView> {
       body: Stack(
         alignment: Alignment.center,
         children: [
+          Center(
+            child: Text("Jelly is Preparing Camera\nPlease wait", textAlign: TextAlign.center,style: TextStyle(
+                color: Colors.white,
+                fontFamily: CustomFonts.titiliumWeb_SemiBold,
+                fontSize: 13
+            ),),
+          ),
           Column(
             children: [
               Expanded(
@@ -58,13 +65,6 @@ class _SplitCameraViewState extends State<SplitCameraView> {
                 ),
               ),
             ],
-          ),
-          Center(
-            child: Text("Jelly is Preparing Camera\nPlease wait", textAlign: TextAlign.center,style: TextStyle(
-              color: Colors.white,
-              fontFamily: CustomFonts.titiliumWeb_SemiBold,
-              fontSize: 13
-            ),),
           ),
           if( recordingStarted )
           Align(
