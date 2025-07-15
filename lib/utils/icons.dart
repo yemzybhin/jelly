@@ -13,6 +13,8 @@ class CustomIcons{
   static String speed = 'assets/images/icons/speed.svg';
   static String mute = 'assets/images/icons/mute.svg';
   static String unmute = 'assets/images/icons/unmute.svg';
+  static String delete = 'assets/images/icons/delete.svg';
+  static String back_arrow = 'assets/images/icons/back_arrow.svg';
 
   static String play = 'assets/images/icons/play.svg';
   static String stack = 'assets/images/icons/stack.svg';

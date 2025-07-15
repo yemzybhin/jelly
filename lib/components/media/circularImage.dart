@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../utils/colors.dart';
+
 class CircularImage extends StatelessWidget {
   final String imageUrl;
   final double size;
@@ -113,7 +113,6 @@ class CircularImage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: CustomColors.black.withOpacity(opacity),
               ),
-
             ) : SizedBox()
           ],
         ),

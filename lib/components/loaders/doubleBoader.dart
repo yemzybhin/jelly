@@ -34,8 +34,7 @@ class DoubleLoader extends StatelessWidget {
                 strokeCap: StrokeCap.round,
               ),
             ),
-          )
-          ,
+          ),
         )
       ],
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jellyjelly/views/screens/pages/spltCameraView.dart';
 import '../../views/screens/pages/feedsPage.dart';
 import '../../views/screens/pages/galleryPage.dart';
-import '../../views/screens/pages/recordingPage.dart';
 import '../icons.dart';
 
 class PageItem{
@@ -14,7 +14,7 @@ class PageItem{
 
   static List<PageItem> pages = [
     PageItem(title: "Feeds", widget: FeedsPage(), icon: CustomIcons.feed),
-    PageItem(title: "Record", widget: Recordingpage(), icon: CustomIcons.camera),
+    PageItem(title: "Record", widget: SplitCameraView(), icon: CustomIcons.camera),
     PageItem(title: "Gallery", widget: Gallerypage(), icon: CustomIcons.gallery),
   ];
 }

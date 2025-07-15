@@ -6,17 +6,17 @@ import 'package:jellyjelly/components/buttons/CustomIconButton.dart';
 import 'package:jellyjelly/components/loaders/doubleBoader.dart';
 import 'package:jellyjelly/components/media/circularImage.dart';
 import 'package:jellyjelly/components/texts/readmore.dart';
+import 'package:jellyjelly/models/Jelly.dart';
 import 'package:jellyjelly/utils/colors.dart';
-import 'package:jellyjelly/utils/dimensions.dart';
 import 'package:jellyjelly/utils/fonts.dart';
 import 'package:jellyjelly/utils/icons.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:async';
 
 class CustomVideoPlayer extends StatefulWidget {
-  final String videoUrl;
+  final Jelly jelly;
 
-  const CustomVideoPlayer({Key? key, required this.videoUrl}) : super(key: key);
+  const CustomVideoPlayer({Key? key, required this.jelly}) : super(key: key);
 
   @override
   State<CustomVideoPlayer> createState() => _CustomVideoPlayerState();
@@ -35,7 +35,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   void initState() {
     super.initState();
     if(mounted){
-      _controller = VideoPlayerController.network(widget.videoUrl)
+      _controller = VideoPlayerController.network(widget.jelly.video)
         ..initialize().then((_) {
           setState(() {});
           _controller.play();
@@ -44,7 +44,6 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
         });
       _controller.addListener(() {
         if (!_controller.value.isInitialized) return;
-
         final pos = _controller.value.position;
         final dur = _controller.value.duration;
 
@@ -54,8 +53,6 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
               _sliderValue = pos.inMilliseconds.toDouble();
             });
           }
-
-          // Auto-replay logic
           if (_controller.value.position >= _controller.value.duration &&
               !_controller.value.isPlaying) {
             _controller.seekTo(Duration.zero);
@@ -76,9 +73,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
 
   void _startHideTimer() {
     _hideTimer?.cancel();
-    _hideTimer = Timer(const Duration(seconds: 3), () {
-
-    });
+    _hideTimer = Timer(const Duration(seconds: 3), () {});
   }
 
   void _onInteraction() {
@@ -98,7 +93,6 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
       }
     });
   }
-
 
   void _toggleMute() {
     _onInteraction();
@@ -126,7 +120,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
     if (newPosition > total) newPosition = total;
 
     _controller.seekTo(newPosition);
-    _controller.play(); // Ensure it plays after seek
+    _controller.play();
   }
 
   String _format(Duration d) {
@@ -200,10 +194,10 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       CircularImage(
-                                          imageUrl: "https://cbtzdoasmkbbiwnyoxvz.supabase.co/storage/v1/object/public/avatars/157DD89D-D5EA-42C3-A615-6DF6CFF31C9F.jpg",
+                                          imageUrl: widget.jelly.profileImage,
                                           size: 35
                                       ),
-                                      Text("David Nash", style: TextStyle(
+                                      Text(widget.jelly.userName, style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
                                         fontFamily: CustomFonts.ranchers
@@ -211,7 +205,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                                     ],
                                   ),
                                   SizedBox(height: 5),
-                                  ReadMoreText(text: "The essence of me being in this project is to find a better way to do the things I need to do to break out of the one and only thing that has the name of me in my new of the same ", trimLength: 50,),
+                                  ReadMoreText(text: widget.jelly.description, trimLength: 50,),
                                 ],
                               ),
                             ),
@@ -225,6 +219,9 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                                     fontFamily: CustomFonts.titiliumWeb_SemiBold,
                                     fontSize: 12
                                 )),
+
+                                Custom_IconButton(icon: _isPlaying ? CustomIcons.pause : CustomIcons.play, onpressed: _togglePlay ),
+
 
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -257,8 +254,6 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                                     )
                                   ],
                                 )
-
-
                               ],
                             ),
                             SizedBox(height: 6),
@@ -269,7 +264,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                     SliderTheme(
                       data: SliderTheme.of(context).copyWith(
                         trackHeight: 3,
-                        thumbShape: SliderComponentShape.noThumb, // <- hides the thumb
+                        thumbShape: SliderComponentShape.noThumb,
                         overlayShape: SliderComponentShape.noOverlay,
                         activeTrackColor: Colors.white,
                         inactiveTrackColor: CustomColors.white_20,
@@ -282,7 +277,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                           _onInteraction();
                           setState(() => _sliderValue = value);
                           _controller.seekTo(Duration(milliseconds: value.toInt()));
-                          _controller.play(); // Smooth resume after scrubbing
+                          _controller.play();
                         },
                       ),
                     ),

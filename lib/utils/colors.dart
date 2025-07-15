@@ -24,4 +24,6 @@ class CustomColors {
 
   static Color primaryBackground = Color(0xff0D0D10);
   static Color secondaryBackground = Color(0xff141918);
+  static Color red = Color(0xffFE2B54);
+
 }

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-import 'package:flutter/material.dart';
-
 class FadingWidget extends StatefulWidget {
   final Widget child;
   final Duration duration;
