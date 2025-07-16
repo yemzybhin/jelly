@@ -94,7 +94,7 @@ Saved under:
 
 ## 📦 APK Download
 
-> 🔗 [Download APK Here](https://your-apk-link.com) _(replace with your own)_
+> 🔗 [Download APK Here](https://drive.google.com/file/d/11DLVccoI4Ona8fAGITX66YbCJyovbvjY/view?usp=sharing)
 
 ---
 
