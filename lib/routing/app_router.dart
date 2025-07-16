@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:jellyjelly/routing/router_constants.dart';
 import 'package:jellyjelly/views/screens/pages/permissions.dart';
 import 'package:jellyjelly/views/screens/pages/viewsplitvideo.dart';
+import 'package:jellyjelly/views/widget/viewSingleVideo.dart';
 import '../main.dart';
 import '../views/screens/rootPage.dart';
 class AppRouter {
@@ -43,6 +44,22 @@ class AppRouter {
               key: state.pageKey,
               child: ViewSplitVideo(
                 splitVideo : params?['splitVideo'] ?? null,
+              ),
+              transitionDuration: Duration(milliseconds: 300),
+              transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+            );
+          }
+      ),
+
+      GoRoute(
+          name : RouteConstants.singleVid,
+          path: '/singleVid',
+          pageBuilder: (context, state) {
+            final params = state.extra as Map<String , dynamic >?;
+            return CustomTransitionPage(
+              key: state.pageKey,
+              child: Viewsinglevideo(
+                path : params?['path'] ?? "",
               ),
               transitionDuration: Duration(milliseconds: 300),
               transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),

@@ -72,6 +72,7 @@ class _VideothumbnailState extends State<Videothumbnail> {
   @override
   Widget build(BuildContext context) {
     BasicState basicState = context.watch<BasicState>();
+    print(widget.front);
     return FutureBuilder<Map<String, File?>>(
       future: getOrGenerateThumbnail( widget.front, widget.back ),
       builder: (context, snapshot) {
@@ -112,12 +113,12 @@ class _VideothumbnailState extends State<Videothumbnail> {
                   children: [
                     Column(
                       children: [
-                        frontImage != null ?
+                        frontImage != "" ?
                         Expanded(
                           child: RotatedBox(
                             quarterTurns: 1,
                             child: Image.file(
-                              frontImage,
+                              frontImage!,
                               height: double.infinity,
                               width: double.infinity,
                               fit: BoxFit.cover,
@@ -131,12 +132,12 @@ class _VideothumbnailState extends State<Videothumbnail> {
                           ),)
                         ),
 
-                        backImage != null ?
+                        backImage != "" ?
                         Expanded(
                           child: RotatedBox(
                             quarterTurns: 1,
                             child: Image.file(
-                              backImage,
+                              backImage!,
                               height: double.infinity,
                               width: double.infinity,
                               fit: BoxFit.cover,

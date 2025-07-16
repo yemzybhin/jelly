@@ -53,7 +53,7 @@ This required:
 
 #### 📲 Flutter Side:
 - Widget `SplitCameraView` displays the split preview
-- Buttons call native `startRecording` and `stopRecording` via `MethodChannel`
+- Button call native `startRecording` and coundown calls `stopRecording` via `MethodChannel`
 - Gallery loads video files using `SplitVideoItem` model + service
 - Videos are matched using timestamp in filenames
 
@@ -85,8 +85,6 @@ Saved under:
 ---
 
 ## 🖼 UI Screenshots
-
-> _Replace with actual images below_
 
 | Split Camera View                                     | Gallery Page |
 |-------------------------------------------------------|--------------|
@@ -151,8 +149,11 @@ flutter run
 
 ## 🧩 Tabs Overview
 
-### ▶️ Tab 1: [Insert Explanation Here]
-_You can explain what Tab 1 does here._
+### ▶️ Tab 1: Feeds
+1. Scraped splitview videos from jellyjelly.com/feed are displayed here
+2. This view features a pageview that enables vertical scrolling between videos.
+3. Username, video & description, controls and other UI elements are displayed upon scrolling each video.
+4. No method channel to Android was called in this tab.
 
 ---
 
@@ -162,7 +163,9 @@ See full details above.
 ---
 
 ### ▶️ Tab 3: [Insert Explanation Here]
-_You can explain what Tab 3 does here._
+1. Split videos generated from tab 2 are displayed here in a grid.
+2. User clicks any item to open the splitvideo.
+3. user can delete the split video from this page
 
 ---
 
@@ -181,9 +184,3 @@ _You can explain what Tab 3 does here._
 ## 🤝 Contributions
 
 Feel free to fork, suggest improvements, or raise issues. PRs are welcome.
-
----
-
-## 🪪 License
-
-This project is under the MIT License. See `LICENSE` for details.
